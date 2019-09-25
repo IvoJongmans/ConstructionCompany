@@ -1,0 +1,43 @@
+#mainblock {
+    display: grid;
+    grid-template-columns: 150px 300px;
+    grid-template-rows:50px 1fr 50px 1fr 50px;
+    background-image: url('/images/helm.jpeg');
+    background-size: cover;
+    background-position: right top;
+    height: calc(100vh - 62px);
+}
+
+#card1 {
+    grid-area: 2 / 2 / 3 / 3;
+    background-image: url('/images/card1.jpeg');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+#card2 {
+    grid-area: 4 / 2 / 5 / 3;
+    background-image: url('/images/card2.jpeg');
+    background-size: cover;
+    background-position: center;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+@media only screen and (max-width: 991px) {
+    #mainblock {
+        height: calc(100vh - 56px);
+    }
+  }
+
+@media only screen and (max-width: 701px) {
+    #mainblock {
+        grid-template-columns: 0.3fr 1fr 0.3fr;
+        grid-template-rows:50px 1fr 50px 1fr 50px;
+    }
+  }
+
+
+
