@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$heroku_db_url = parse_url(env('DATABASE_URL', "postgres://ifkxoeralcxpbu:44680fbbebb9e2b16babbc07276e73849c6292af1c687388af305136170b7925@ec2-54-235-180-123.compute-1.amazonaws.com:5432/d82ig2qh4583dj"));
+$heroku_db_url = parse_url(env('DATABASE_URL', "postgres://fqhwwexculvzxs:b50c2ae7f2130ad7926a9fadfb33967ee1fa8e0d9d8d93a474fa32f760c56f78@ec2-174-129-43-40.compute-1.amazonaws.com:5432/defceutkhrbfja"));
 
 return [
 
