@@ -33,7 +33,7 @@
         });
 
         $('#card2').mouseenter(function(){
-            $('#card2').css('background-image', 'none').css('background-color', 'white').append('<h1 class="text-center">TEKST HIER</h1>');
+            $('#card2').css('background-image', 'none').css('background-color', 'white').append('<h1 class="text-center">HEROKU REMOTE SUCCESS</h1>');
         });
 
         $('#card2').mouseleave(function(){
