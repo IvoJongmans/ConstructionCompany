@@ -47,9 +47,23 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+      
+        @if(Auth::guard('gebruiker')->check())
+        <li class="nav-item">
+            Welkom {{Auth::guard('gebruiker')->user()->name}}
+            </li>
+        <li class="nav-item">
+              <a href="{{ url('/logout') }}"> logout </a>
+            </li>
+           
+        @else
+        <li class="nav-item">
                 <a class="nav-link" href="/login"><img src="{{ asset('navbar/login.png') }}" width="30" height="30" alt=""></a>
             </li>
+        @endif
+
+           
+            
         </ul>
   </div>
 </nav>

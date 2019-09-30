@@ -24,3 +24,7 @@ Route::post('/register', 'RegistreerController@create');
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::post('/login', 'InlogController@login');
+
+Route::get('/logout', 'UitlogController@logout');

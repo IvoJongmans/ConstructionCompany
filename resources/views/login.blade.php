@@ -15,15 +15,16 @@
 
         </div>
         <div class="container" id="loginform">
-            <form>
+            <form action="/login" method="post">
+            @csrf
                 <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mailadres">
+                <label for="email">E-mailadres</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Bijv. huisje@mail.com">
                 </div>
                 <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Wachtwoord">
-                <small id="emailHelp" class="form-text text-muted">Nog geen account? <a href="/register">Registreer.</a></small>
+                <label for="password">Wachtwoord</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Wachtwoord">
+                <small class="form-text text-muted">Nog geen account? <a href="/register">Registreer.</a></small>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>

@@ -22,8 +22,8 @@
                 <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Bijv. Ivo Jongmans">
                 </div>
                 <div class="form-group">
-                <label for="email">Emailadres</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Emailadres">
+                <label for="email">E-mailadres</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Bijv. huisje@mail.com">
                 </div>
                 <div class="form-group">
                 <label for="password">Wachtwoord</label>
