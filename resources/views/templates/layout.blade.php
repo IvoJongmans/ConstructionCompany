@@ -48,13 +48,13 @@
     </ul>
     <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><img src="{{ asset('navbar/login.png') }}" width="30" height="30" alt=""></a>
+                <a class="nav-link" href="/login"><img src="{{ asset('navbar/login.png') }}" width="30" height="30" alt=""></a>
             </li>
         </ul>
   </div>
 </nav>
 
     @yield('content')
-    
+
 </body>
 </html>

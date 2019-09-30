@@ -1,0 +1,22 @@
+#mainblock {
+    background-image: url('/images/helm.jpeg');
+    background-size: cover;
+    background-position: right top;
+    height: calc(100vh - 62px);
+}
+
+#push {
+    height: 62px;
+}
+
+#loginform {
+    background-color: white;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+@media only screen and (max-width: 991px) {
+    #push {
+        height: 56px;
+    }
+  }
