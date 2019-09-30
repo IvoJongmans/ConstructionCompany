@@ -1,3 +1,9 @@
+@keyframes border-pulse {
+    0%   { border: 3px solid white; }
+    50% { border: 3px solid grey; }
+    100% { border: 3px solid white; }
+}
+
 #mainblock {
     display: grid;
     grid-template-columns: 150px 300px;
@@ -13,8 +19,8 @@
     background-image: url('/images/card1.jpeg');
     background-size: cover;
     background-position: center;
-    border: 3px solid white;
     border-radius: 25px;
+    animation: border-pulse 4s infinite;
 }
 
 #card2 {
@@ -22,8 +28,8 @@
     background-image: url('/images/card2.jpeg');
     background-size: cover;
     background-position: center;
-    border: 3px solid white;
     border-radius: 25px;
+    animation: border-pulse 4s infinite;
 }
 
 @media only screen and (max-width: 991px) {
