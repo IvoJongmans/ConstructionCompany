@@ -1895,8 +1895,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log("Component 2 mounted.");
-    console.log(this.clicks);
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("i-got-clicked", function (clickCount) {
       _this.clickCount = clickCount;
     });
