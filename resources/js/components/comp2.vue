@@ -15,8 +15,6 @@ export default {
     }
   },
   mounted() {
-    console.log("Component 2 mounted.");
-    console.log(this.clicks);
     EventBus.$on("i-got-clicked", clickCount => {
       this.clickCount = clickCount;
     });
