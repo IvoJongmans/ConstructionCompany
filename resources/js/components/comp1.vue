@@ -1,5 +1,11 @@
 <template>
-  <div class="pleeease-click-me" @click="emitGlobalClickEvent()">CLICK {{clickCount}}</div>
+  <div @click="emitGlobalClickEvent()">
+
+      <h5>Component 1</h5>
+      <p>CLICK ME AND SEE WHAT HAPPENS!</p>
+      <p>CLICKS: {{clickCount}}</p>
+
+  </div>
 </template>
 
 <script>

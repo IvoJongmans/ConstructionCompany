@@ -1843,6 +1843,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 // Import the EventBus we just created.
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1876,12 +1882,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component 2 mounted.');
+  data: function data() {
+    return {
+      clickCount: 0
+    };
   },
-  methods: {}
+  mounted: function mounted() {
+    var _this = this;
+
+    console.log("Component 2 mounted.");
+    console.log(this.clicks);
+    _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("i-got-clicked", function (clickCount) {
+      _this.clickCount = clickCount;
+    });
+  } //         mounted() {
+  //            EventBus.$on('i-got-clicked', clickCount => {
+  //   console.log(`Oh, that's nice. It's gotten ${clickCount} clicks! :)`)
+  // });
+  //         },
+
 });
 
 /***/ }),
@@ -19510,14 +19534,19 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "pleeease-click-me",
       on: {
         click: function($event) {
           return _vm.emitGlobalClickEvent()
         }
       }
     },
-    [_vm._v("CLICK " + _vm._s(_vm.clickCount))]
+    [
+      _c("h5", [_vm._v("Component 1")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("CLICK ME AND SEE WHAT HAPPENS!")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("CLICKS: " + _vm._s(_vm.clickCount))])
+    ]
   )
 }
 var staticRenderFns = []
@@ -19542,7 +19571,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h3", [_vm._v("COMP2")])
+  return _c("div", [
+    _c("h5", [_vm._v("Component 2")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("CLICKS ON COMP 1: " + _vm._s(_vm.clickCount) + " ")])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
