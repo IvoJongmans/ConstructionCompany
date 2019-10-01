@@ -2,38 +2,19 @@
 
 @section('css')
 
-    <link rel="stylesheet" href="{{ asset('css/creator.css') }}">
-
 @endsection
 
 @section('title', 'Woning Creator')
 
 @section('content')
 
-    <div class="container-fluid" id="creatorcontainer">
+<div id="app">
 
-        <div id="options">
-            <h5 class="text-center">OPTIONS</h5>
-            <select v-model="dakpannen" @@change="veranderprijs">
-                    <option>Rood</option>
-                    <option>Zwart</option>
-                  </select>
-                  <span>Selected: @{{ dakpannen }}</span>
-        </div>
+    <comp1></comp1>
+    <comp2></comp2>
 
-        <div id="house">
-            <h5 class="text-center">HOUSE</h5>
+</div>
 
-        </div>
-
-        <div id="price">
-            <h5 class="text-center">PRICE</h5>
-            @{{ kosten }}
-        </div>
-
-    </div>
-
-    <script type="text/javascript" src="{{ URL::asset('VueJS/options.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('VueJS/price.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 @endsection
