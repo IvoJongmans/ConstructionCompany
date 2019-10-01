@@ -33,7 +33,7 @@
         <a class="nav-link" href="#">Onze Filosofie</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Woning Creator</a>
+        <a class="nav-link" href="/creator"> Woning Creator</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +47,7 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      
+
         @if(Auth::guard('gebruiker')->check())
         <li class="nav-item">
             Welkom {{Auth::guard('gebruiker')->user()->name}}
@@ -55,15 +55,15 @@
         <li class="nav-item">
               <a href="{{ url('/logout') }}"> logout </a>
             </li>
-           
+
         @else
         <li class="nav-item">
                 <a class="nav-link" href="/login"><img src="{{ asset('navbar/login.png') }}" width="30" height="30" alt=""></a>
             </li>
         @endif
 
-           
-            
+
+
         </ul>
   </div>
 </nav>

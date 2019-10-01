@@ -28,3 +28,5 @@ Route::get('/login', function () {
 Route::post('/login', 'InlogController@login');
 
 Route::get('/logout', 'UitlogController@logout');
+
+Route::get('/creator', 'CreatorController@show');
