@@ -1,6 +1,6 @@
 #app {
     display: grid;
     grid-template-columns: 1.5fr 3fr 1.5fr;
-    /* grid-template-rows: calc(100vh - 62px); */
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: calc(100vh - 62px);
 }

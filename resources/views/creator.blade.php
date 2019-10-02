@@ -12,9 +12,10 @@
 
 <div id="app">
 
-    <comp1></comp1>
-    <comp2></comp2>
-    <comp3></comp3>
+    <option_roofcolor></option_roofcolor>
+    <house_roof></house_roof>
+    <price_roof></price_roof>
+    <price_total></price_total>
 
 </div>
 
