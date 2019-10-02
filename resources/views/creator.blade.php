@@ -13,7 +13,9 @@
 <div id="app">
 
     <option_roofcolor></option_roofcolor>
+    <option_wall_material></option_wall_material>
     <house_roof></house_roof>
+    <house_wall_material></house_wall_material>
     <price_roof></price_roof>
     <price_total></price_total>
 

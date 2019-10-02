@@ -1,5 +1,5 @@
 <template>
-  <div id="options">
+  <div id="option_roof">
     <h5>Component 1</h5>
     <select v-model="data.selected" @change="emitColorChange">
       <option value="red">Rood</option>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style>
-#options {
+#option_roof {
   grid-area: 1 / 1 / 2 / 2;
   text-align: center;
 }

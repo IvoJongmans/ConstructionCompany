@@ -1863,6 +1863,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/house_wall_material.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _event_bus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../event-bus.js */ "./resources/js/event-bus.js");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      data: {}
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("materialChange", function (data) {
+      _this.data = data;
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/option_roofcolor.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/option_roofcolor.vue?vue&type=script&lang=js& ***!
@@ -1937,14 +1971,24 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       data: {
-        material: ''
+        selected: "",
+        wood: {
+          material_nl: "Hout",
+          material_code: "wood",
+          price: 100
+        },
+        stone: {
+          material_nl: "Steen",
+          material_code: "stone",
+          price: 150
+        }
       }
     };
   },
   methods: {
     emitMaterialChange: function emitMaterialChange() {
-      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
-      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("materialChange", this.data);
+      var chosen_material = this.data.selected;
+      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("materialChange", this.data["".concat(chosen_material)]);
     }
   }
 });
@@ -1968,7 +2012,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1982,6 +2025,11 @@ __webpack_require__.r(__webpack_exports__);
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("colorChange", function (data) {
       _this.data = data;
     });
+  },
+  methods: {
+    update_total: function update_total() {
+      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("update_total", this.data.price);
+    }
   }
 });
 
@@ -2003,15 +2051,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      data: {}
+      data: {
+        total: 0
+      }
     };
   },
   mounted: function mounted() {
-    _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("colorChange", function (data) {});
+    var _this = this;
+
+    _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("update_total", function (data) {
+      _this.data.total += data;
+    });
   }
 });
 
@@ -2029,7 +2084,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#house {\n  grid-area: 1 / 2 / 2 / 3;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n#house_roof {\n  grid-area: 1 / 2 / 2 / 3;\n  text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#house_wall_material {\n  grid-area: 2 / 2 / 3 / 3;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -2048,7 +2122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#options {\n  grid-area: 1 / 1 / 2 / 2;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n#option_roof {\n  grid-area: 1 / 1 / 2 / 2;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -2067,7 +2141,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#option_wall_material {\n  grid-area: 2 / 1 / 3 / 2;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n#option_wall {\n  grid-area: 2 / 1 / 3 / 2;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -19760,6 +19834,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./house_wall_material.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/option_roofcolor.vue?vue&type=style&index=0&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/option_roofcolor.vue?vue&type=style&index=0&lang=css& ***!
@@ -20483,9 +20587,40 @@ var render = function() {
     "div",
     {
       style: { "background-color": this.data.color_code },
-      attrs: { id: "house" }
+      attrs: { id: "house_roof" }
     },
     [_c("h5", [_vm._v("Component 2")])]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      style: { "background-color": this.data.color_code },
+      attrs: { id: "house_wall_material" }
+    },
+    [_c("h5", [_vm._v("Component 5")])]
   )
 }
 var staticRenderFns = []
@@ -20510,7 +20645,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "options" } }, [
+  return _c("div", { attrs: { id: "option_roof" } }, [
     _c("h5", [_vm._v("Component 1")]),
     _vm._v(" "),
     _c(
@@ -20575,7 +20710,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "option_wall_material" } }, [
+  return _c("div", { attrs: { id: "option_wall" } }, [
     _c("h5", [_vm._v("Component 4")]),
     _vm._v(" "),
     _c(
@@ -20585,8 +20720,8 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.data.material,
-            expression: "data.material"
+            value: _vm.data.selected,
+            expression: "data.selected"
           }
         ],
         on: {
@@ -20602,7 +20737,7 @@ var render = function() {
                 })
               _vm.$set(
                 _vm.data,
-                "material",
+                "selected",
                 $event.target.multiple ? $$selectedVal : $$selectedVal[0]
               )
             },
@@ -20611,9 +20746,9 @@ var render = function() {
         }
       },
       [
-        _c("option", [_vm._v("Baksteen")]),
+        _c("option", { attrs: { value: "wood" } }, [_vm._v("Hout")]),
         _vm._v(" "),
-        _c("option", [_vm._v("Hout")])
+        _c("option", { attrs: { value: "stone" } }, [_vm._v("Baksteen")])
       ]
     )
   ])
@@ -20643,7 +20778,11 @@ var render = function() {
   return _c("div", { attrs: { id: "price" } }, [
     _c("h5", [_vm._v("Component 3")]),
     _vm._v(" "),
-    _vm.data ? _c("p", [_vm._v(_vm._s(_vm.data.price))]) : _vm._e()
+    _vm.data
+      ? _c("p", { on: { change: _vm.update_total } }, [
+          _vm._v(_vm._s(_vm.data.price))
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -20668,18 +20807,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { attrs: { id: "price_total" } }, [
+    _c("h5", [_vm._v("Totaal")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.data.total) + " ")])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "price_total" } }, [
-      _c("h5", [_vm._v("Totaal")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -32840,6 +32974,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('option_roofcolor', __webpack_require__(/*! ./components/option_roofcolor.vue */ "./resources/js/components/option_roofcolor.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('option_wall_material', __webpack_require__(/*! ./components/option_wall_material.vue */ "./resources/js/components/option_wall_material.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('house_roof', __webpack_require__(/*! ./components/house_roof.vue */ "./resources/js/components/house_roof.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('house_wall_material', __webpack_require__(/*! ./components/house_wall_material.vue */ "./resources/js/components/house_wall_material.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('price_roof', __webpack_require__(/*! ./components/price_roof.vue */ "./resources/js/components/price_roof.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('price_total', __webpack_require__(/*! ./components/price_total.vue */ "./resources/js/components/price_total.vue")["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -32962,6 +33097,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_house_roof_vue_vue_type_template_id_924d74c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_house_roof_vue_vue_type_template_id_924d74c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/house_wall_material.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/house_wall_material.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./house_wall_material.vue?vue&type=template&id=2897b8a2& */ "./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2&");
+/* harmony import */ var _house_wall_material_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./house_wall_material.vue?vue&type=script&lang=js& */ "./resources/js/components/house_wall_material.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./house_wall_material.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _house_wall_material_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/house_wall_material.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/house_wall_material.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/house_wall_material.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./house_wall_material.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./house_wall_material.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./house_wall_material.vue?vue&type=template&id=2897b8a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/house_wall_material.vue?vue&type=template&id=2897b8a2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_house_wall_material_vue_vue_type_template_id_2897b8a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

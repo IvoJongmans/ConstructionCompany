@@ -1,8 +1,7 @@
 <template>
   <div id="price">
     <h5>Component 3</h5>
-    <p v-if="data">{{ data.price }}</p>
-
+    <p v-if="data" @change="update_total">{{ data.price }}</p>
   </div>
 </template>
 
@@ -12,13 +11,18 @@ import { EventBus } from "../event-bus.js";
 export default {
   data() {
     return {
-      data: null,
-    }
+      data: null
+    };
   },
   mounted() {
     EventBus.$on("colorChange", data => {
       this.data = data;
     });
+  },
+  methods: {
+    update_total() {
+      EventBus.$emit("update_total", this.data.price);
+    }
   }
 };
 </script>

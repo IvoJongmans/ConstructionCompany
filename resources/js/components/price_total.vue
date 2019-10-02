@@ -1,6 +1,7 @@
 <template>
 <div id="price_total">
   <h5>Totaal</h5>
+  <p>{{ data.total}} </p>
 </div>
 </template>
 
@@ -11,15 +12,15 @@ export default {
     data() {
     return {
       data: {
-
+          total : 0,
       }
     }
   },
   mounted() {
-    EventBus.$on("colorChange", data => {
-
+    EventBus.$on("update_total", data => {
+      this.data.total += data;
     });
-  }
+  },
 };
 </script>
 

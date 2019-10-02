@@ -1,6 +1,6 @@
 <template>
-  <div id="house_roof" v-bind:style="{ 'background-color': this.data.color_code }">
-    <h5>Component 2</h5>
+  <div id="house_wall_material" v-bind:style="{ 'background-color': this.data.color_code }">
+    <h5>Component 5</h5>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     };
   },
   mounted() {
-    EventBus.$on("colorChange", data => {
+    EventBus.$on("materialChange", data => {
       this.data = data;
     });
   }
@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style>
-#house_roof {
-  grid-area: 1 / 2 / 2 / 3;
+#house_wall_material {
+  grid-area: 2 / 2 / 3 / 3;
   text-align: center;
 }
 </style>
