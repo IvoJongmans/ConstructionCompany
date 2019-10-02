@@ -1897,7 +1897,6 @@ __webpack_require__.r(__webpack_exports__);
 
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("materialChange", function (data) {
       _this.data = data;
-      console.log(_this.data.material_code);
     });
   }
 });
@@ -1933,12 +1932,14 @@ __webpack_require__.r(__webpack_exports__);
         red: {
           color_nl: "Rood",
           color_code: "red",
-          price: 20
+          price: 20,
+          house_part: 'roof'
         },
         grey: {
           color_nl: "Grijs",
           color_code: "grey",
-          price: 50
+          price: 50,
+          house_part: 'roof'
         }
       }
     };
@@ -1983,13 +1984,15 @@ __webpack_require__.r(__webpack_exports__);
           material_nl: "Hout",
           material_code: "wood",
           price: 100,
-          image_url: 'wood.jpg'
+          image_url: 'wood.jpg',
+          house_part: 'wall'
         },
         stone: {
           material_nl: "Steen",
           material_code: "stone",
           price: 150,
-          image_url: 'stone.jpg'
+          image_url: 'stone.jpg',
+          house_part: 'wall'
         }
       }
     };
@@ -2039,6 +2042,11 @@ __webpack_require__.r(__webpack_exports__);
     update_total: function update_total() {
       _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("update_total", this.data.price);
     }
+  },
+  watch: {
+    data: function update_total() {
+      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("update_total", this.data);
+    }
   }
 });
 
@@ -2073,8 +2081,22 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    var roof_cost = 0;
+    var wall_cost = 0;
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("update_total", function (data) {
-      _this.data.total += data;
+      if (data.house_part == "wall") {
+        console.log('De prijs van de muur is veranderd');
+        wall_cost = data.price;
+        console.log(wall_cost);
+        _this.data.total = wall_cost + roof_cost;
+      }
+
+      if (data.house_part == "roof") {
+        console.log('De prijs van het dak is veranderd');
+        roof_cost = data.price;
+        console.log(roof_cost);
+        _this.data.total = wall_cost + roof_cost;
+      }
     });
   }
 });
@@ -2091,7 +2113,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_bus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../event-bus.js */ "./resources/js/event-bus.js");
-//
 //
 //
 //
@@ -2115,6 +2136,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     update_total: function update_total() {
       _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("update_total", this.data.price);
+    }
+  },
+  watch: {
+    data: function update_total() {
+      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit("update_total", this.data);
     }
   }
 });
@@ -20681,14 +20707,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      style: { "background-color": this.data.color_code },
-      attrs: { id: "house_roof" }
-    },
-    [_c("h5", [_vm._v("Component 2")])]
-  )
+  return _c("div", {
+    style: { "background-color": this.data.color_code },
+    attrs: { id: "house_roof" }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20713,17 +20735,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.data
-    ? _c(
-        "div",
-        {
-          style: { backgroundImage: "url(/images/" + _vm.data.image_url + ")" },
-          attrs: { id: "house_wall_material" }
-        },
-        [_c("h5", [_vm._v("Component 5")])]
-      )
-    : _c("div", { attrs: { id: "house_wall_material" } }, [
-        _c("h5", [_vm._v("Component 5")])
-      ])
+    ? _c("div", {
+        style: { backgroundImage: "url(/images/" + _vm.data.image_url + ")" },
+        attrs: { id: "house_wall_material" }
+      })
+    : _c("div", { attrs: { id: "house_wall_material" } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20748,7 +20764,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "option_roof" } }, [
-    _c("h5", [_vm._v("Component 1")]),
+    _c("h5", [_vm._v("Dakkleur:")]),
     _vm._v(" "),
     _c(
       "select",
@@ -20813,7 +20829,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "option_wall" } }, [
-    _c("h5", [_vm._v("Component 4")]),
+    _c("h5", [_vm._v("Materiaal muur:")]),
     _vm._v(" "),
     _c(
       "select",
@@ -20878,7 +20894,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "price" } }, [
-    _c("h5", [_vm._v("Component 3")]),
+    _c("h5", [_vm._v("Prijs:")]),
     _vm._v(" "),
     _vm.data
       ? _c("p", { on: { change: _vm.update_total } }, [
@@ -20938,8 +20954,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "price_wall_material" } }, [
-    _c("h5", [_vm._v("Component 6")]),
-    _vm._v(" "),
     _vm.data
       ? _c("p", { on: { change: _vm.update_total } }, [
           _vm._v(_vm._s(_vm.data.price))

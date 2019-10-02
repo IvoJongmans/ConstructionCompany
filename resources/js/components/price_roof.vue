@@ -1,6 +1,6 @@
 <template>
   <div id="price">
-    <h5>Component 3</h5>
+    <h5>Prijs:</h5>
     <p v-if="data" @change="update_total">{{ data.price }}</p>
   </div>
 </template>
@@ -23,6 +23,12 @@ export default {
     update_total() {
       EventBus.$emit("update_total", this.data.price);
     }
+  },
+  watch: {
+      data: function update_total() {
+
+          EventBus.$emit("update_total", this.data);
+      }
   }
 };
 </script>

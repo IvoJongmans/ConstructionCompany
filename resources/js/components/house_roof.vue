@@ -1,6 +1,6 @@
 <template>
   <div id="house_roof" v-bind:style="{ 'background-color': this.data.color_code }">
-    <h5>Component 2</h5>
+
   </div>
 </template>
 

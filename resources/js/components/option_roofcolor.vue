@@ -1,6 +1,6 @@
 <template>
   <div id="option_roof">
-    <h5>Component 1</h5>
+    <h5>Dakkleur:</h5>
     <select v-model="data.selected" @change="emitColorChange">
       <option value="red">Rood</option>
       <option value="grey">Grijs</option>
@@ -19,12 +19,14 @@ export default {
         red: {
           color_nl: "Rood",
           color_code: "red",
-          price: 20
+          price: 20,
+          house_part: 'roof'
         },
         grey: {
           color_nl: "Grijs",
           color_code: "grey",
-          price: 50
+          price: 50,
+          house_part: 'roof'
         }
       }
     };

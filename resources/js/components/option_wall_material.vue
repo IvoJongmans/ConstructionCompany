@@ -1,6 +1,6 @@
 <template>
   <div id="option_wall">
-    <h5>Component 4</h5>
+    <h5>Materiaal muur:</h5>
     <select v-model="data.selected" @change="emitMaterialChange">
       <option value="wood">Hout</option>
       <option value="stone">Baksteen</option>
@@ -21,12 +21,14 @@ export default {
           material_code: "wood",
           price: 100,
           image_url: 'wood.jpg',
+          house_part: 'wall'
         },
         stone: {
           material_nl: "Steen",
           material_code: "stone",
           price: 150,
           image_url: 'stone.jpg',
+          house_part: 'wall'
         }
       }
     };
