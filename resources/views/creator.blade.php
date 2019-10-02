@@ -17,6 +17,7 @@
     <house_roof></house_roof>
     <house_wall_material></house_wall_material>
     <price_roof></price_roof>
+    <price_wall_material></price_wall_material>
     <price_total></price_total>
 
 </div>

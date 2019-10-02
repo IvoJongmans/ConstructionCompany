@@ -19,12 +19,14 @@ export default {
         wood: {
           material_nl: "Hout",
           material_code: "wood",
-          price: 100
+          price: 100,
+          image_url: 'wood.jpg',
         },
         stone: {
           material_nl: "Steen",
           material_code: "stone",
-          price: 150
+          price: 150,
+          image_url: 'stone.jpg',
         }
       }
     };

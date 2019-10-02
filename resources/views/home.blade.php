@@ -13,10 +13,10 @@
     <div class="container-fluid" id="mainblock">
 
         <div id="card1">
-        
+
         </div>
 
-        <div id="card2">           
+        <div id="card2">
 
         </div>
 

@@ -26,7 +26,7 @@ export default {
 
 <style>
     #price_total {
-        grid-area: 2 / 3 / 3 / 4;
+        grid-area: 3 / 3 / 4 / 4;
         text-align: center;
     }
 
